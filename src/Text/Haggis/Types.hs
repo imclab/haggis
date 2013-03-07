@@ -23,6 +23,7 @@ import Data.Maybe
 
 import System.FilePath
 
+-- import Text.Haggis.Utils
 import Text.XmlHtml
 
 data SiteTemplates = SiteTemplates {
@@ -42,7 +43,8 @@ data Page = Page {
   pagePath :: FilePath,
   -- This is the content as rendered by pandoc (i.e. it has not been bound to
   -- the single.html template)
-  pageContent :: [Node]
+  pageContent :: [Node],
+  pageComments :: [Comment]
 } deriving (Show)
 
 data MultiPageType =
@@ -97,4 +99,4 @@ data Comment = Comment {
   commenterEmail :: String,
   commentPayload :: String,
   commentTime :: UTCTime
-}
+} deriving (Show)
